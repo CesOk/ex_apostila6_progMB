@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
 
 export class Jogo extends Component {
   timer = null
@@ -53,7 +54,7 @@ export class Jogo extends Component {
                     this.props.mensagemDeErro ?
                     `${this.props.mensagemDeErro}`
                     :
-                    `Clique no botão para iniciar o jogo`  
+                    `Clique no botão para receber uma nova pergunta`  
                   }
                 </p>
               </div>
@@ -62,11 +63,11 @@ export class Jogo extends Component {
                   className="btn btn-outline-primary w-50 mt-2"
                   onClick={this.props.obterOperacao}
                   style={{backgroundColor: 'rgba(155, 192, 140, 1)', color:'black'}}>
-                  Iniciar Jogo
+                  Próxima Pergunta
                 </button>
                 <button 
                   className="btn btn-outline-primary w-50 mt-2"
-                  onClick={this.props.encerrarJogo}
+                  onClick={() => ReactDOM.unmountComponentAtNode(document.querySelector('#root'))}
                   style={{backgroundColor: 'rgba(224, 0, 0, 0.67)', color:'black'}}>
                   Encerrar Jogo
                 </button>
@@ -74,19 +75,19 @@ export class Jogo extends Component {
               <div class="d-flex flex-wrap justify-content-center">
                 <button 
                   className="btn btn-outline-primary align-items-center w-30 mt-2"
-                  onClick={this.props.obterResposta}
+                  // onClick={this.props.resposta1}
                   style={{backgroundColor: 'rgba(140, 179, 192, 1)', color:'black'}}>
                   {this.props.resposta1}
                 </button>
                 <button 
                   className="btn btn-outline-primary align-items-center w-30 mt-2"
-                  onClick={this.props.obterResposta}
+                  // onClick={this.props.resposta2}
                   style={{backgroundColor: 'rgba(140, 179, 192, 1)', color:'black'}}>
                   {this.props.resposta2}
                 </button>
                 <button 
                   className="btn btn-outline-primary align-items-center w-30 mt-2"
-                  onClick={this.props.obterResposta}
+                  // onClick={this.props.resposta3}
                   style={{backgroundColor: 'rgba(140, 179, 192, 1)', color:'black'}}>
                   {this.props.resposta3}
                 </button>
